@@ -7,11 +7,52 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Comic</title>
+    <title>Comic-Can</title>
 </head>
 <body>
     <div class="jumbotron">
         <h1 class="text-center">Comic-Can</h1>
+    </div>
+    <!-- Search Bar -->
+    <div class="row">
+        <div class="col-md-7">
+          <div class="card">
+            <div class="card-body border border-dark">
+              <form>
+                <div class="form-group">
+                  <label for="nameInput">Search by Name</label>
+                  <input type="name" class="form-control" id="name-search" placeholder="i.e. Captain Marvel">
+                </div>
+                <button type="submit" class="btn btn-primary">Kapow!</button>
+            </form>
+            </div>
+          </div>
+        </div>
+        <!-- Search by Category -->
+        <div class="col-md-5">
+            <div class="card">
+              <div class="card-body border border-dark">
+                <h5 class="card-title text-center">Search by Category</h5>
+                <p class="card-text">Need to know options</p>
+                <button type="submit" class="btn btn-primary" id="category-search">Kapow!</button>
+              </div>
+            </div>
+        </div>
+    </div>
+    <!-- Results -->
+    <div class="row">
+        <div class="col-md-7">
+          <div class="results" id="results"></div>
+        </div>
+        <!-- Saved -->
+        <div class="col-md-5">
+            <div class="card" id="saved-comics">
+              <div class="card-body border border-dark">
+                <h5 class="card-title text-center">Saved Comics</h5>
+                <div class="saved"></div>
+              </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

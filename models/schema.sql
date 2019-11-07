@@ -4,7 +4,8 @@ USE comics_db;
 CREATE TABLE comics 
 (
 	id INT NOT NULL AUTO_INCREMENT,
+    author VARCHAR(255) NOT NULL,
     comic_title VARCHAR(255) NOT NULL,
-    saved BOOLEAN DEFAULT false,
-    PRIMARY KEY (ID)
+    publisher VARCHAR(255) NOT NULL,
+ PRIMARY KEY (ID)
 );

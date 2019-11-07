@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "KillMyself4",
+    "password": "ayam",
     "database": "comics_db",
     "host": "localhost",
     "dialect": "mysql"

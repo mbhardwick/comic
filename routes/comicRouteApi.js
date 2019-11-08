@@ -1,4 +1,3 @@
-//hides sensitive info in .env
 require("dotenv").config();
 const express = require('express');
 const path = require('path');
@@ -8,35 +7,50 @@ const axios = require('axios');
 
 const router = express.Router();
 
-//API key included in .env to make secured API call
-  const apiKey = process.env.API_KEY;
-  
-  let publisherInput; //under character table in API doc
-  let genderInput; //under character table in API doc
-  let nameInput = "batman"; //under character table in API doc
+const apiKey = process.env.API_KEY;
 
-  //builds api based on what user inputs for name
-  let apiQuery = `https://comicvine.gamespot.com/api/search/?api_key=${apiKey}&format=json&sort=name:asc&resources=issue&query=${nameInput}`;
-   console.log(apiQuery); //current api link works and takes to Json Data.
+//random number generator so a random id is selected for hero
+let randomNum = Math.floor(Math.random() * 500);
+//console.log("Random number test " + randomNum);
+let nameInput = "batman"; //under character table in API doc
 
-router.get('/comic-json', (req, res) => {
+// let apiQuery = `https://superheroapi.com/api/${apiKey}/search/${nameInput}`;
+//    console.log(apiQuery);
+//lets you find hero information based on what is searched by user
+router.get('/name/comic-json', (req, res) => {
+   let apiQuery = `https://superheroapi.com/api/${apiKey}/search/${nameInput}`;
+   console.log(apiQuery);
+   axios.get(apiQuery, {
+     params: {
+        apiKey: process.env.API_KEY,
+        nameInput: nameInput
+     }
+   }).then( ( response) => {
+    res.send(response.data.results);
+       //console.log(res.data.results[0]); 
+  //    console.log(res.data.results[0].name); 
+  //    console.log(res.data.results[0].appearance.gender);
+  //    console.log(res.data.results[0].biography.publisher); 
+  //    console.log(res.data.results[0].image.url); 
+   }).catch( (error) => {
+     console.log(error);
+   });
+ });
+
+ router.get('/random/comic-json', (req, res) => {
+  let apiQuery = `https://superheroapi.com/api/${apiKey}/${randomNum}`;
+  console.log(apiQuery);
   axios.get(apiQuery, {
     params: {
        apiKey: process.env.API_KEY,
        nameInput: nameInput
     }
-  }).then( (res) => {
-   // console.log(res.data.results[0]);
-    console.log(res.data.results[0].volume.name); //hero name
-    console.log(res.data.results[0].cover_date); //date it was published
-    console.log(res.data.results[0].name); //name of comic
-    console.log(res.data.results[0].image.medium_url); //image source
-    console.log(res.data.results[0].description); //description of the commic
-
+  }).then( ( response) => {
+   res.send(response.data);
+     
   }).catch( (error) => {
     console.log(error);
-  })
-})
-  
-    
+  });
+});
+
 module.exports = router;

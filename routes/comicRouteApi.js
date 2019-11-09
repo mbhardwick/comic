@@ -26,12 +26,28 @@ router.get('/name/comic-json', (req, res) => {
         nameInput: nameInput
      }
    }).then( ( response) => {
-    res.send(response.data.results);
+  //  res.json(response.data.results[0].name);
        //console.log(res.data.results[0]); 
   //    console.log(res.data.results[0].name); 
   //    console.log(res.data.results[0].appearance.gender);
   //    console.log(res.data.results[0].biography.publisher); 
   //    console.log(res.data.results[0].image.url); 
+  //aliases, alter ego, first appearance, place-of-birth,base,group-affiliation
+  //
+
+    resultsInfo = {
+      "name": response.data.results[0].name,
+      "gender": response.data.results[0].appearance.gender,
+      "group-affiliation": response.data.results[0].connections,
+      "aliases": response.data.results[0].biography.aliases,
+      "publisher": response.data.results[0].biography.publisher,
+      "alignment": response.data.results[0].biography.alignment,
+      "image": response.data.results[0].image.url,
+      "base": response.data.results[0].work.base
+
+    }
+    res.json(resultsInfo);
+
    }).catch( (error) => {
      console.log(error);
    });
@@ -46,7 +62,7 @@ router.get('/name/comic-json', (req, res) => {
        nameInput: nameInput
     }
   }).then( ( response) => {
-   res.send(response.data);
+   res.json(response.data);
      
   }).catch( (error) => {
     console.log(error);

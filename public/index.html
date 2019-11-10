@@ -35,29 +35,39 @@
                 <h5 class="card-title text-center">Search by Category</h5>
                 <p class="card-text">Need to know options</p>
                 <button type="submit" class="btn btn-primary" id="category-search">Kapow!</button>
+                <!-- Sample button!!! DELTE LATER -->
+                <button type="submit" class="btn btn-primary" id="submit">TEST</button>
               </div>
             </div>
         </div>
     </div>
-    <!-- Results -->
+    <!-- Name Search Results -->
     <div class="row">
         <div class="col-md-7">
           <div class="results" id="results"></div>
           <div class="list-results" id="list-results">
-            <h4>Character Alias</h4>
           </div>
         </div>
-        <!-- Saved -->
-        <div class="col-md-5">
-            <div class="card" id="saved-comics">
-              <div class="card-body border border-dark">
-                <h5 class="card-title text-center">Saved Comics</h5>
-                <div class="saved"></div>
-              </div>
-            </div>
+
+        <!--Random Hero Results-->
+    <div class="row">
+        <div class="col-md-7">
+          <div class="random-results" id="random-results"></div>
+          </div>
         </div>
-    </div>
+
+          <!-- Saved -->
+          <div class="col-md-5">
+              <div class="card" id="saved-comics">
+                <div class="card-body border border-dark">
+                  <h5 class="card-title text-center">Saved Comics</h5>
+                  <div class="saved"></div>
+                </div>
+              </div>
+          </div>
+      </div>
     <script src="js/display-json.js"></script>
+    <script src="js/random-character-display.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>

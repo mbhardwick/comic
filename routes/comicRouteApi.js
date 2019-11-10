@@ -12,7 +12,7 @@ const apiKey = process.env.API_KEY;
 //random number generator so a random id is selected for hero
 let randomNum = Math.floor(Math.random() * 500);
 //console.log("Random number test " + randomNum);
-let nameInput = "batman"; //under character table in API doc
+let nameInput = "captain marvel"; //under character table in API doc
 
 // let apiQuery = `https://superheroapi.com/api/${apiKey}/search/${nameInput}`;
 //    console.log(apiQuery);
@@ -26,6 +26,7 @@ router.get('/name/comic-json', (req, res) => {
         nameInput: nameInput
      }
    }).then( ( response) => {
+     //***----Tests for making sure api results are queried correctly----***/
   //  res.json(response.data.results[0].name);
        //console.log(res.data.results[0]); 
   //    console.log(res.data.results[0].name); 
@@ -34,7 +35,7 @@ router.get('/name/comic-json', (req, res) => {
   //    console.log(res.data.results[0].image.url); 
   //aliases, alter ego, first appearance, place-of-birth,base,group-affiliation
   //
-
+//****------------Takes only needed results for display-json to use */
     resultsInfo = {
       "name": response.data.results[0].name,
       "gender": response.data.results[0].appearance.gender,
@@ -44,7 +45,6 @@ router.get('/name/comic-json', (req, res) => {
       "alignment": response.data.results[0].biography.alignment,
       "image": response.data.results[0].image.url,
       "base": response.data.results[0].work.base
-
     }
     res.json(resultsInfo);
 
@@ -62,7 +62,19 @@ router.get('/name/comic-json', (req, res) => {
        nameInput: nameInput
     }
   }).then( ( response) => {
-   res.json(response.data);
+    res.json(response.data);
+    //**********-----Display info for random-character-------***/
+    resultsInfo = {
+     "name": response.data.results[0].name,
+     "gender": response.data.results[0].appearance.gender,
+     "group-affiliation": response.data.results[0].connections,
+     "aliases": response.data.results[0].biography.aliases,
+     "publisher": response.data.results[0].biography.publisher,
+     "alignment": response.data.results[0].biography.alignment,
+     "image": response.data.results[0].image.url,
+     "base": response.data.results[0].work
+   }
+   res.json(resultsInfo);
      
   }).catch( (error) => {
     console.log(error);

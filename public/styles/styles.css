@@ -1,3 +1,6 @@
+body {
+  background-image: url("images/turquoise-background.jpg");
+}
 .list-group-item {
   line-height: 2.5;
 }
@@ -10,7 +13,8 @@ h1 {
   font-family: 'Bangers', cursive;
 }
 .card {
-  border: 1px solid black !important;
+  border: 2px solid black !important;
+  background-color: #e9e9e9;
 }
 #search-box {
   margin-left: 15px;
@@ -24,6 +28,8 @@ h1 {
 }
 .btn {
   font-family: 'Roboto', sans-serif;
+  background-color: #b11de2;
 }
+
 
 /* font-family: 'Roboto', sans-serif; */

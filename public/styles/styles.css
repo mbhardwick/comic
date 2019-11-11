@@ -1,3 +1,15 @@
 .list-group-item {
   line-height: 2.5;
 }
+.card {
+  border: 1px solid black !important;
+}
+#search-box {
+  margin-left: 15px;
+}
+#saved-box {
+  margin-right: 15px;
+}
+#name-input {
+  margin-right: 10px;
+}

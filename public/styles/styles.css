@@ -5,12 +5,12 @@ body {
   line-height: 2.5;
 }
 h1 {
-  font-family: 'Bangers', cursive;
+  font-family: 'Bangers', serif;
   letter-spacing: 3px;
   font-size: 70px;
 }
 .card-title {
-  font-family: 'Bangers', cursive;
+  font-family: 'Bangers', serif;
 }
 .card {
   border: 2px solid black !important;

@@ -1,4 +1,4 @@
-$('#submit').click(() => {
+$('#random-btn').click(() => {
   
 //When "random" button is clicked then random hero is called
     $.ajax({
@@ -14,13 +14,18 @@ $('#submit').click(() => {
         image_urlDisplay.attr('src', image_url);
         $('#random-results').append(image_urlDisplay);
         console.log(results.image.url);
-       //displays name    
+        //displays name    
        let name = results.name;
-    //console.log(results.name);
-       let nameDisplay = $('<h4>').text(name);
-       nameDisplay.addClass('character-name');
-       $('#random-results').append(nameDisplay);
-        console.log(results.name);
+       //console.log(results.name);
+          let nameDisplay = $('<h4>').text(name);
+          nameDisplay.addClass('character-name');
+          $('#random-results').append(nameDisplay);
+           console.log(results.name);
+        //Save button
+        let saveButton = $('<button>').text('Save Character');
+        saveButton.addClass('btn btn-primary');
+        saveButton.attr({ type: 'submit', id: "saved", name});
+        $('#random-results').append(saveButton);
     //display for gender
         let gender = results.appearance.gender;
         let genderDisplay = $('<p>').text(gender);
@@ -52,13 +57,16 @@ $('#submit').click(() => {
          $('#random-results').append(listTitle);
          //alias list output
          let aliases = results.biography.aliases;
+         console.log(aliases);
         //loops through the alias array and displays them as a list
         for (let i = 0; i < aliases.length; i++) {
             let aliasList = aliases[i];
-        //  console.log(aliasList + " test");
+            console.log(aliasList + " alias test")
+
         let aliasesDisplay = $("<li>").text(aliasList);
         aliasesDisplay.addClass('alias');
         $('#random-results').append(aliasesDisplay);
         }
+      
     });
 });

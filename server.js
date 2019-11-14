@@ -14,8 +14,9 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Routes
-//Any route that starts with /api go to router
+//Route where 3rd party api json info is stored
 app.use("/api", comincVineRoute);
+//route where database info sends updates/creation of data after saved is clicked
 app.use("/data", apiRoutes);
 //require("./routes/htmlRoutes")(app);
 

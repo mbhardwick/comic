@@ -23,7 +23,7 @@
         <div class="card" id="search-box">
           <div class="card-content">
             <span class="card-title">Search by Name</span>
-            <input class="input-field col s6 m8" placeholder="e.g. Captain Marvel" id="name-input" type="text"
+            <input class="input-field col s6 m8" placeholder="e.g. Captain Marvel" id="name-input" type="text" method="POST" name=nameInput
               class="validate">
             <!-- Search Button (note id="search-btn"-->
             <button type="submit" id="search-btn" class="btn btn-primary">Kapow!</button>
@@ -36,8 +36,8 @@
       <div class="col s12 m5 l4">
         <div class="card" id="saved-box">
           <div class="card-content">
-            <span class="card-title center-align">Saved Comics</span>
-            <div class="saved"></div>
+            <span class="card-title center-align">Saved Characters</span>
+            <div class="saved" id="saved-comic"></div>
           </div>
         </div>
       </div>
@@ -59,6 +59,7 @@
   <script src="js/display-json.js"></script>
   <script src="js/random-character-display.js"></script>
   <script src="js/save.js"></script>
+  <script src="js/user-search.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 

@@ -21,8 +21,8 @@ router.post('/comic/update', (req, res) => {
     ], [
         req.body.characterName
     ], (result) => {
+        console.log(result);
         res.json({id: result.insertId});
-        //res.redirect('/'); 
     });
 });
 

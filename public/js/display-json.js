@@ -5,7 +5,7 @@ $.ajax({
     method: "GET"
 }).then((results) => {
     //results are objects created in comicRouteAPI
-    //console.log(results);
+    console.log(results);
     //displays image
     let image_url = results.image;
     let image_urlDisplay = $('<img>');
@@ -13,12 +13,17 @@ $.ajax({
     image_urlDisplay.attr('src', image_url);
     $('#results').append(image_urlDisplay);
   //  console.log(results.image);
-//Displays Name
-    let name = results.name;
-    //console.log(results.name);
-    let nameDisplay = $('<h4>').text(name);
-    nameDisplay.addClass('character-name');
-    $('#results').append(nameDisplay);
+  //Displays Name
+  let name = results.name;
+  //console.log(results.name);
+  let nameDisplay = $('<h4>').text(name);
+  nameDisplay.addClass('character-name');
+  $('#results').append(nameDisplay);
+  //Save button
+  let saveButton = $('<button>').text('Save Character');
+  saveButton.addClass('btn btn-primary');
+  saveButton.attr({ type: 'submit', id: "saved", name});
+  $('#results').append(saveButton);
 //display for gender
     let gender = results.gender;
     let genderDisplay = $('<p>').text(gender);

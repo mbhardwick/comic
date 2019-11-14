@@ -2,9 +2,8 @@ require("dotenv").config();
 const express = require('express');
 const path = require('path');
 
-var db = require("./models");
-
 const comincVineRoute = require('./routes/comicRouteApi');
+const apiRoutes = require('./routes/apiRoutes');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -17,8 +16,7 @@ app.use(express.static('public'));
 // Routes
 //Any route that starts with /api go to router
 app.use("/api", comincVineRoute);
-
-//require("./routes/apiRoutes")(app);
+app.use("/data", apiRoutes);
 //require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
@@ -30,7 +28,7 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
+//db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
@@ -38,6 +36,6 @@ db.sequelize.sync(syncOptions).then(function() {
       PORT
     );
   });
-});
+//});
 
 module.exports = app;

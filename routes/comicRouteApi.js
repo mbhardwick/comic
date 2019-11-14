@@ -10,12 +10,10 @@ const router = express.Router();
 const apiKey = process.env.API_KEY;
 
 //random number generator so a random id is selected for hero
-let randomNum = Math.floor(Math.random() * 500);
+let randomNum = Math.floor(Math.random() * 730);
 //console.log("Random number test " + randomNum);
 let nameInput = "captain marvel"; //under character table in API doc
 
-// let apiQuery = `https://superheroapi.com/api/${apiKey}/search/${nameInput}`;
-//    console.log(apiQuery);
 //lets you find hero information based on what is searched by user
 router.get('/name/comic-json', (req, res) => {
    let apiQuery = `https://superheroapi.com/api/${apiKey}/search/${nameInput}`;
@@ -59,7 +57,7 @@ router.get('/name/comic-json', (req, res) => {
   axios.get(apiQuery, {
     params: {
        apiKey: process.env.API_KEY,
-       nameInput: nameInput
+       randomNum: randomNum
     }
   }).then( ( response) => {
     res.json(response.data);

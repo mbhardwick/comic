@@ -1,3 +1,4 @@
+//code for when random hero is generated after random button is clicked
 $('#random-btn').click(() => {
   
 //When "random" button is clicked then random hero is called
@@ -7,7 +8,7 @@ $('#random-btn').click(() => {
         method: "GET"
     }).then((results) => {
        // console.log(results);
-       //displays image
+       //dynamically created -- displays image
        let image_url = results.image.url;
         let image_urlDisplay = $('<img>');
         image_urlDisplay.addClass('img-display');

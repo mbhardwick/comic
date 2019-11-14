@@ -12,10 +12,14 @@ const apiKey = process.env.API_KEY;
 //random number generator so a random id is selected for hero
 let randomNum = Math.floor(Math.random() * 730);
 //console.log("Random number test " + randomNum);
-let nameInput = "captain marvel"; //under character table in API doc
+//let nameInput = "captain marvel";
+//; //under character table in API doc
 
 //lets you find hero information based on what is searched by user
-router.get('/name/comic-json', (req, res) => {
+router.post('/name/comic-json', (req, res) => {
+   let nameInput = req.body.name;
+   JSON.stringify(nameInput); 
+  console.log(nameInput);
    let apiQuery = `https://superheroapi.com/api/${apiKey}/search/${nameInput}`;
    console.log(apiQuery);
    axios.get(apiQuery, {
